@@ -1,0 +1,17 @@
+*.tar
+MK.e*
+MK.o*
+fortran/
+*.txt
+man/
+build/
+*.pdf
+*.pyc
+src/*.so*
+*~
+ipynb/*
+src/.ipynb_checkpoints/
+*orig
+*.docx
+*.tar
+
