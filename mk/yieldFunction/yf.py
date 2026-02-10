@@ -8,22 +8,11 @@ import numpy as np
 from scipy import optimize
 from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
-import os
-import sys
-from importlib import reload
 
-##
-_this_dir = os.path.dirname(__file__)
-_parent_dir = os.path.abspath(os.path.join(_this_dir, os.pardir))
-if _parent_dir not in sys.path:
-    sys.path.insert(0, _parent_dir)
-
-from library import lib
-reload(lib)
-from library.lib import *
-from materials import func_hard
-reload(func_hard)
-from materials.func_hard import *
+from mk.library import lib
+from mk.library.lib import *
+from mk.materials import func_hard
+from mk.materials.func_hard import *
 ##
 from MP.mat import voigt
 ijv=voigt.ijv

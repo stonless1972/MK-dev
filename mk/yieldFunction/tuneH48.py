@@ -6,7 +6,7 @@ obtained by a series of uniaxial tension tests.
 """
 #from for_lib import vm
 # from yf_for import vm
-from yf2 import HillQuad,Hill48, wrapHill48Gen
+from .yf2 import HillQuad,Hill48, wrapHill48Gen
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.optimize import minimize
@@ -65,14 +65,14 @@ def tuneGenY(y=[1.,1.,1.],r0=None,r90=None):
     if len(y)==3:
         ## Eq 4 in Dasappa et al. IJSS, vol 49, (2012)
         y0,y45,y90 = y
-        if type(r0)!=type(None) and type(r90)==type(None):
+        if r0 is not None and r90 is None:
             r0=float(r0)
             ## using R0
             h = r0 / (1.+r0) / y0**2.
             g = h  / r0
             f = 1. / y90**2  - h
             n = 2. / y45**2  - (g+f)/2.
-        elif type(r0)==type(None) and type(r90)!=type(None):
+        elif r0 is None and r90 is not None:
             r90=float(r90)
             ## using R90
             h = r90 / (1.+r90) / y90**2
@@ -87,13 +87,13 @@ def tuneGenY(y=[1.,1.,1.],r0=None,r90=None):
         y0  = y[0]
         y45 = y[int(len(y)/2.)]
         y90 = y[-1]
-        if type(r0)!=type(None) and type(r90)==type(None):
+        if r0 is not None and r90 is None:
             ## using R0
             h = r0 / (1.+r0) / y0**2.
             g = h  / r0
             f = 1. / y90**2  - h
             n = 2. / y45**2  - (g+f)/2.
-        elif type(r0)==type(None) and type(r90)!=type(None):
+        elif r0 is None and r90 is not None:
             ## using R90
             h = r90 / (1+r90) / y90**2
             f = h   / r90

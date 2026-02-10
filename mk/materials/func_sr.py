@@ -18,7 +18,7 @@ def func_power(ed,ed0,m):
     """
     return (ed/ed0)**m
 
-def func_jc(ed,e0,m):
+def func_jc(ed,ed0,m):
     """
     Johnson-Cook, 1983
     sigma = (1+m*np.log(ed/ed0))

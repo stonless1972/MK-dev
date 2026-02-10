@@ -263,9 +263,9 @@ def testAllPaths():
 def testEachPath(funcPath=None):
     from mk.library.mk_lib import findStressOnYS
     if funcPath is None:
-        angs,npt,pth,f_yld,stressR, stressL = DRD()
+        angs,npt,pth,stressR, stressL = DRD()
     elif callable(funcPath):
-        angs,npt,pth,f_yld,stressR, stressL = funcPath()
+        angs,npt,pth,stressR, stressL = funcPath()
     else:
         raise IOError('Error!')
 
@@ -279,7 +279,7 @@ def testEachPath(funcPath=None):
         strainVector = [pthr,ptht]
 
         s,dphi = findStressOnYS(
-            f_yld,SR.copy(),SL.copy(),
+            vm,SR.copy(),SL.copy(),
             pth=strainVector,
             verbose=False)
         pass
